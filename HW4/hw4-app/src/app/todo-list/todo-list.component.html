@@ -1,0 +1,16 @@
+<div class="todo-container">
+    <h2>Todo List</h2>
+    <button (click)="loadTodos()">Load</button>
+
+    <div *ngIf="loaded">
+        <ul>
+            <li *ngFor="let todo of todos">
+                 {{ todo.title }}
+            </li>
+        </ul>
+    </div>
+
+    <div *ngIf="!loaded">
+        <p>Click "Load" to get todos</p>
+    </div>
+</div>

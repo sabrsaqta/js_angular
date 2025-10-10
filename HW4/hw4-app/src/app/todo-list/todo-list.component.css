@@ -1,0 +1,33 @@
+.todo-container {
+    max-width: 500px;
+    text-align: center;
+    margin: 30px auto;
+    border: 1px solid rgb(103, 14, 151);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(103, 14, 151, 0.4);
+}
+
+h2{
+    color: rgb(173, 29, 74);
+}
+button{
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    border-radius: 4px;
+    transition: background-color 0.3 ease, color 0.3 ease;
+}
+
+button:hover{
+    background-color: rgb(173, 29, 74);
+    color: white;
+}
+
+
+
+ul{
+    list-style-position: inside;
+    padding-left: 0;
+    margin-left: 0;
+}
