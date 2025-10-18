@@ -1,5 +1,11 @@
 <div class="todo-container">
     <h2>Todo List</h2>
+    <div class="search-container">
+        <input #searchInput type="text" placeholder="Search todos by title..."
+        (input)="onSearch(searchInput.value)">
+    </div>
+
+
     <button (click)="loadTodos()">Load</button>
 
     <div *ngIf="loaded">
