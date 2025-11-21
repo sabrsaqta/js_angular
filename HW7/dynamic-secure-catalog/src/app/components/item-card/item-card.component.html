@@ -1,0 +1,9 @@
+<div class="item-card" [routerLink]="['/items', item.id]">
+    <img [src]="item.image" alt="{{ item.title }}" class="item-image">
+    <div class="card-content">
+        <h3>{{ item.title }}</h3>
+        <p class="category">{{ item.category }}</p>
+        <p class="price">\${{ item.price }}</p>
+        <span class="rating">Rate: {{ item.rating.rate }}</span>
+    </div>
+</div>

@@ -40,7 +40,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
 
   loadTodos() {
     this.todoService.getTodos().subscribe(data =>{
-      this.todos = data.slice(0,10);
+      this.todos = data.slice(0,200);
       this.loaded = true;
     })
   }

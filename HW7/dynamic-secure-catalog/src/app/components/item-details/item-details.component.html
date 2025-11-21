@@ -1,0 +1,36 @@
+<div class="details-container">
+
+    <button (click)="goBack()" class="back-button">← Back to Catalog</button>
+
+    <div *ngIf="isLoading" class="state-message loading">
+        Loading item details...
+    </div>
+
+    <div *ngIf="(item$ | async) as item" class="item-details-card">
+        <div class="image-section">
+            <img [src]="item.image" alt="{{ item.title }}" class="item-image-details">
+        </div>
+
+        <div class="info-section">
+            <h1>{{ item.title }}</h1>
+
+            <p class="category-tag">{{ item.category | uppercase }}</p>
+
+            <div class="price-rating">
+                <span class="price-tag">\${{ item.price }}</span>
+                <span>Rating: {{ item.rating.rate }} ({{ item.rating.count }} reviews)</span>
+            </div>
+
+            <hr>
+
+            <p class="description">{{ item.description }}</p>
+
+            <button class="add-to-cart-button">Add to Cart (Placeholder)</button>
+        </div>
+    </div>
+
+    <div *ngIf="!isLoading && !(item$ | async)" class="state-message not-found">
+        <h2>404 - Item Not Found</h2>
+        <p>The requested product ID could not be found in the catalog.</p>
+    </div>
+</div>
