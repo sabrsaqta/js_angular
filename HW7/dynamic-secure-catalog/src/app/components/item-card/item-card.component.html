@@ -1,13 +1,12 @@
-<div class="item-card"> 
-    
-    <img [src]="item.image" alt="{{ item.title }}">
-    
-    <h3>{{ item.title }}</h3>
-    
-    <p class="category">{{ item.category }}</p>
-    <p class="rating">Rate: {{ item.rating.rate }}</p>
-
-    <p>{{ item.price | currency:'USD' }}</p> 
-    
-    <a [routerLink]="['/items', item.id]" class="details-link">Подробнее</a>
-</div>
+<a [routerLink]="['/items', item.id]" class="card-link">
+    <div class="item-card"> 
+        
+        <img [src]="item.image" alt="{{ item.title }}">
+        
+        <h3>{{ item.title }}</h3>
+        
+        <p class="details-link">
+             Подробнее о рецепте
+        </p>
+    </div>
+</a>

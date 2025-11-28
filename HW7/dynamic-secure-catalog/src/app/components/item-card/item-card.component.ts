@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Item } from '../../services/items.service';
+import { SearchRecipe } from '../../services/recipes.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,5 +10,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './item-card.component.css'
 })
 export class ItemCardComponent {
-  @Input() item!: Item;
+  @Input() item!: SearchRecipe;
 }

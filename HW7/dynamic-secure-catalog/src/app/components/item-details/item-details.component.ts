@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { ItemsService, Item } from '../../services/items.service';
+import { RecipesService, Recipe } from '../../services/recipes.service';
 import { Observable, switchMap, catchError, of, shareReplay } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -12,12 +12,12 @@ import { map } from 'rxjs/operators';
   styleUrl: './item-details.component.css'
 })
 export class ItemDetailsComponent implements OnInit {
-  item$!: Observable<Item | null>;
+  item$!: Observable<Recipe | null>;
   isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
-    private itemsService: ItemsService,
+    private recipesService: RecipesService,
     private router: Router
   ) {}
 
@@ -31,7 +31,7 @@ export class ItemDetailsComponent implements OnInit {
           return of(null); // если айди нет, возвращаем null
         }
 
-        return this.itemsService.getItemById(id).pipe(
+        return this.recipesService.getItemById(id).pipe(
           map(item => {
             this.isLoading = false;
             // вернул ли API пустой ответ?

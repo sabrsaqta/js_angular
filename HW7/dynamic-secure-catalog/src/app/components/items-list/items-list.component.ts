@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ItemsService, Item } from '../../services/items.service';
+import { RecipesService, SearchRecipe } from '../../services/recipes.service';
 import { ItemCardComponent } from '../item-card/item-card.component';
 import { Observable, switchMap, catchError, of, map, startWith, BehaviorSubject } from 'rxjs';
 
@@ -17,14 +17,14 @@ import { Observable, switchMap, catchError, of, map, startWith, BehaviorSubject 
   styleUrl: './items-list.component.css'
 })
 export class ItemsListComponent implements OnInit {
-  items$!: Observable<Item[]>;
+  items$!: Observable<SearchRecipe[]>;
   loading$!: Observable<boolean>;
   error$!: Observable<string | null>;
 
   searchQuery: string = ''; //отображает текущий запрос после ввода
 
   constructor(
-    private itemsService: ItemsService, //получение данных
+    private recipesService: RecipesService, //получение данных
     private route: ActivatedRoute, // для чтения url параметров
     private router: Router //для записи url параметров
   ){}
@@ -49,7 +49,7 @@ export class ItemsListComponent implements OnInit {
         loadingSubject.next(true);
         errorSubject.next(null);
 
-        return this.itemsService.getItems(query).pipe(
+        return this.recipesService.getItems(query).pipe(
           map(items => {
             loadingSubject.next(false); // успешное завершение
             return items;

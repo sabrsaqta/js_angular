@@ -1,4 +1,4 @@
-<div class="details-container">
+<!-- <div class="details-container">
 
     <button (click)="goBack()" class="back-button">← Back to Catalog</button>
 
@@ -32,5 +32,54 @@
     <div *ngIf="!isLoading && !(item$ | async)" class="state-message not-found">
         <h2>404 - Item Not Found</h2>
         <p>The requested product ID could not be found in the catalog.</p>
+    </div>
+</div> -->
+
+
+<div class="details-container">
+
+    <button (click)="goBack()" class="back-button">← Back to Catalog</button>
+
+    <div *ngIf="isLoading" class="state-message loading">
+        Loading recipe details...
+    </div>
+
+    <div *ngIf="(item$ | async) as recipe" class="item-details-card">
+        
+        <div class="image-section">
+            <img [src]="recipe.image" alt="{{ recipe.title }}" class="item-image-details">
+        </div>
+
+        <div class="info-section">
+            
+            <h1>{{ recipe.title }}</h1>
+
+            <p class="category-tag">{{ recipe.dishTypes.join(', ') | uppercase }}</p>
+
+            <div class="price-rating">
+                <span class="price-tag">{{ recipe.pricePerServing | currency }} / serving</span>
+                
+                <span>Score: {{ recipe.spoonacularScore }} / 100</span>
+            </div>
+
+            <hr>
+
+            <p class="description" [innerHTML]="recipe.summary"></p>
+            
+            <hr>
+
+            <div class="additional-details">
+                <p><strong>🕒 Время готовки:</strong> {{ recipe.readyInMinutes }} минут</p>
+                <p><strong>🍽️ Порций:</strong> {{ recipe.servings }}</p>
+                <p><strong>🥣 Типы кухни:</strong> {{ recipe.dishTypes.join(', ') }}</p>
+            </div>
+            
+            <button class="add-to-cart-button">Cook this Recipe</button> 
+        </div>
+    </div>
+
+    <div *ngIf="!isLoading && !(item$ | async)" class="state-message not-found">
+        <h2>404 - Recipe Not Found</h2>
+        <p>The requested recipe ID could not be found in the catalog.</p>
     </div>
 </div>
