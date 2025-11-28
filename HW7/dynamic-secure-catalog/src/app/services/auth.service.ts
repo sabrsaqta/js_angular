@@ -11,6 +11,7 @@ export class AuthService {
   private auth: Auth = inject(Auth);
 
   user$: Observable<User | null> = user(this.auth);
+  public currentUser$: Observable<User | null> = user(this.auth);
 
   isLoggedIn$: Observable<boolean> = this.user$.pipe(
     map(user => !!user)

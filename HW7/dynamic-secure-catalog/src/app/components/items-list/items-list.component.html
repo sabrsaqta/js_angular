@@ -1,32 +1,35 @@
+<div class="container">
 <div class="items-list-container">
-    <div class="search-form">
-        <input 
-            type="text" 
-            placeholder="Search items by title..."
-            [value]="searchQuery" 
-            (input)="onSearch($event)">
-    </div>
-
-    <div *ngIf="loading$ | async" class="state-message loading">
-        Loading items...
-    </div>
-
-    <div *ngIf="error$ | async as error" class="state-message error">
-        Error: {{ error }}
-    </div>
-
-    <div *ngIf="items$ | async as filteredList">
-        
-        <h3 class="count-check">Total visible items: {{ filteredList.length }}</h3>
-
-        <div *ngIf="filteredList.length === 0" class="state-message empty">
-            No items found matching criteria.
+        <div class="search-form">
+            <input 
+                type="text" 
+                placeholder="Search items by title..."
+                [value]="searchQuery" 
+                (input)="onSearch($event)"
+                class="search-form">
         </div>
 
-        <div *ngIf="filteredList.length > 0" class="items-grid">
-            <app-item-card 
-                *ngFor="let item of filteredList" 
-                [item]="item"> </app-item-card>
+        <div *ngIf="loading$ | async" class="state-message loading">
+            Loading items...
+        </div>
+
+        <div *ngIf="error$ | async as error" class="state-message error">
+            Error: {{ error }}
+        </div>
+
+        <div *ngIf="items$ | async as filteredList">
+            
+            <h3 class="count-check">Total visible items: {{ filteredList.length }}</h3>
+
+            <div *ngIf="filteredList.length === 0" class="state-message empty">
+                No items found matching criteria.
+            </div>
+
+            <div *ngIf="filteredList.length > 0" class="items-grid">
+                <app-item-card 
+                    *ngFor="let item of filteredList" 
+                    [item]="item"> </app-item-card>
+            </div>
         </div>
     </div>
 </div>

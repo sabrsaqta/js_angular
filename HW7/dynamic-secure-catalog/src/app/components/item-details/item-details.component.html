@@ -17,7 +17,7 @@
             <p class="category-tag">{{ item.category | uppercase }}</p>
 
             <div class="price-rating">
-                <span class="price-tag">\${{ item.price }}</span>
+                <span class="price-tag">${{ item.price }}</span>
                 <span>Rating: {{ item.rating.rate }} ({{ item.rating.count }} reviews)</span>
             </div>
 
@@ -25,7 +25,7 @@
 
             <p class="description">{{ item.description }}</p>
 
-            <button class="add-to-cart-button">Add to Cart (Placeholder)</button>
+            <button class="add-to-cart-button">Add to Cart</button>
         </div>
     </div>
 

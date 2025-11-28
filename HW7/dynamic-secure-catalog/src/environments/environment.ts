@@ -3,7 +3,7 @@
 export const environment = {
   // Флаг для режима разработки
   production: false,
-  
+  // spoonacularApiKey: 'ba9a942d9b924b09bcec5084989f8f82',
   // Объект конфигурации для AngularFire
   firebase: {
     apiKey: "AIzaSyDGRwLUObQadG86pyIPC0-mWgiQL86eGsw",

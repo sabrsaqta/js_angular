@@ -1,5 +1,4 @@
-<nav class="navbar">
-    <div class="logo">Angular App</div>
+<div class="logo">Angular App</div>
     
     <div class="nav-links">
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
@@ -12,7 +11,6 @@
 
         <ng-container *ngIf="isLoggedIn$ | async">
             <a routerLink="/profile" routerLinkActive="active">Profile</a>
-            <button (click)="onLogout()" class="logout-button">Logout</button>
+            <button (click)="onLogout()">Logout</button>
         </ng-container>
     </div>
-</nav>
