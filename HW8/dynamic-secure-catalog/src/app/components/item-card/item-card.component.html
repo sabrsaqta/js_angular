@@ -1,0 +1,12 @@
+<a [routerLink]="['/items', item.id]" class="card-link">
+    <div class="item-card"> 
+        
+        <img [src]="item.image" alt="{{ item.title }}">
+        
+        <h3>{{ item.title }}</h3>
+        
+        <p class="details-link">
+             Подробнее о рецепте
+        </p>
+    </div>
+</a>
