@@ -46,6 +46,7 @@ export class LoginComponent {
           // вход неуспешен, сохраняем и отображаем ошибку
           console.error(error);
           this.errorMessage = 'Login failed. Check your email and password.';
+          this.loginForm.reset();
         }
       });
     } else {
