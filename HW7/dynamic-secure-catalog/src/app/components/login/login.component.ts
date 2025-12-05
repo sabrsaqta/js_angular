@@ -25,6 +25,7 @@ export class LoginComponent {
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
+
   });
 
   constructor() { }
@@ -46,6 +47,7 @@ export class LoginComponent {
           // вход неуспешен, сохраняем и отображаем ошибку
           console.error(error);
           this.errorMessage = 'Login failed. Check your email and password.';
+          this.loginForm.reset();
         }
       });
     } else {
