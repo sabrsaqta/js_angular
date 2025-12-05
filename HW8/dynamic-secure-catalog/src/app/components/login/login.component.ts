@@ -1,7 +1,7 @@
 // src/app/components/login/login.component.ts
 
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -10,7 +10,7 @@ import { Credentials } from '../../models/credentials.model';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink], // ⬅️ Добавлены ReactiveFormsModule и RouterLink
+  imports: [ReactiveFormsModule, RouterLink], // ⬅️ Добавлены ReactiveFormsModule и RouterLink
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

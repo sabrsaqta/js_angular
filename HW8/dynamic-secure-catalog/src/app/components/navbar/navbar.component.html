@@ -1,16 +1,16 @@
 <div class="logo">Angular App</div>
-    
-    <div class="nav-links">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a routerLink="/items" routerLinkActive="active">Catalog</a>
-        <a routerLink="/about" routerLinkActive="active">About</a>
 
-        <ng-container *ngIf="(isLoggedIn$ | async) === false">
-            <a routerLink="/login" routerLinkActive="active" class="auth-link">Login / Register</a>
-        </ng-container>
+<div class="nav-links">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+  <a routerLink="/items" routerLinkActive="active">Catalog</a>
+  <a routerLink="/about" routerLinkActive="active">About</a>
 
-        <ng-container *ngIf="isLoggedIn$ | async">
-            <a routerLink="/profile" routerLinkActive="active">Profile</a>
-            <button (click)="onLogout()">Logout</button>
-        </ng-container>
-    </div>
+  @if ((isLoggedIn$ | async) === false) {
+    <a routerLink="/login" routerLinkActive="active" class="auth-link">Login / Register</a>
+  }
+
+  @if (isLoggedIn$ | async) {
+    <a routerLink="/profile" routerLinkActive="active">Profile</a>
+    <button (click)="onLogout()">Logout</button>
+  }
+</div>
