@@ -11,6 +11,9 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
+import { itemsReducer } from './items/state/items.reducer';
+import { ItemsEffects } from './items/state/items.effects';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -18,12 +21,13 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideStore(),
+    provideStore({ items: itemsReducer }),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
       autoPause: true,
       trace: false
     }),
+    provideEffects([ItemsEffects]),
   ]
 };

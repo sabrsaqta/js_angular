@@ -108,3 +108,10 @@ item-card img {
     height: 150px;
     object-fit: contain;
 }
+
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
